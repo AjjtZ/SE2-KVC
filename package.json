@@ -30,7 +30,8 @@
     "esbuild": "^0.25.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
-    "vite": "^6.2.2"
+    "vite": "^6.2.2",
+    "vitest": "^3.0.9"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^6.9.4",
