@@ -8,8 +8,8 @@ const preserveDirectives = () => {
     transform(code, id) {
       if (id.includes('client/src')) {
         // Logic to preserve "use client" directives
-        // This might involve modifying the code to keep the directive
-        return { code };
+        const preservedCode = code.replace(/"use client";/g, '');
+        return { code: preservedCode };
       }
       return null;
     },
