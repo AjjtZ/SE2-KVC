@@ -1,24 +1,23 @@
 {
-  "name": "your-project-name",
+  "name": "se2-kvc",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "dev": "vite --host",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khodekvc/SE2-KVC.git"
+    "url": "https://github.com/AjjtZ/SE2-KVC.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/khodekvc/SE2-KVC/issues"
+    "url": "https://github.com/AjjtZ/SE2-KVC/issues"
   },
-  "homepage": "https://github.com/khodekvc/SE2-KVC#readme",
+  "homepage": "https://master.d3a3fq9o5kdr8.amplifyapp.com/",
   "devDependencies": {
     "@aws-amplify/backend": "^1.14.3",
     "@aws-amplify/backend-cli": "^1.5.0",
