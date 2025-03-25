@@ -4,26 +4,24 @@ frontend:
     preBuild:
       commands:
         - echo "Installing dependencies..."
-        # Install dependencies for the client
+        - nvm install 20
+        - nvm use 20
+        - node -v  # Verify Node.js 20
         - cd client
         - npm install --legacy-peer-deps
-        # Install dependencies for the server
         - cd ../server
         - npm install --legacy-peer-deps
-        # Go back to root directory, after installations
         - cd ../
     build:
       commands:
         - echo "Building..."
-        # Build the client
         - cd client
         - npm run build
-        # Build the server (if applicable - often not needed for Node.js backends)
         - cd ../server
-        - npm run build  # Or any other build command, e.g., tsc, webpack
+        - npm run build
         - cd ../
   artifacts:
-    baseDirectory: client/dist  # Specify the client build output directory
+    baseDirectory: client/dist
     files:
       - '**/*'
   cache:
