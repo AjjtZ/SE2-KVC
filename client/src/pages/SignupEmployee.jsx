@@ -26,7 +26,7 @@ const SignupEmployee = () => {
     
       const fetchCaptcha = async () => {
         try {
-          const response = await fetch("http://localhost:5000/auth/captcha", {
+          const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/auth/captcha", {
             credentials: "include",
           });
           const data = await response.json();
@@ -46,7 +46,7 @@ const SignupEmployee = () => {
     e.preventDefault();
     console.log("Signing up employee:", formData);
     try {
-      const response = await fetch("http://localhost:5000/auth/signup/employee", {
+      const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/auth/signup/employee", {
         method: "POST",
         credentials: "include",
         headers: {

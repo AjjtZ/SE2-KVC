@@ -1,5 +1,6 @@
 "use client"
 
+import React from 'react';
 import { useState, useEffect } from "react"
 import AccountPage from "./AccountPage"
 
@@ -13,7 +14,7 @@ const MyAccount = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/user/myAccount", {
+        const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/user/myAccount", {
           method: "GET",
           credentials: "include",
           headers: {
@@ -55,7 +56,7 @@ const MyAccount = () => {
 
   const handleSave = async (updatedData) => {
     try {
-      const response = await fetch("http://localhost:5000/user/update-employee-profile", {
+      const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/user/update-employee-profile", {
         method: "PUT",
         credentials: "include",
         headers: {

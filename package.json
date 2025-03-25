@@ -1,0 +1,49 @@
+{
+  "name": "se2-kvc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AjjtZ/SE2-KVC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AjjtZ/SE2-KVC/issues"
+  },
+  "homepage": "https://master.d3a3fq9o5kdr8.amplifyapp.com/",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.14.3",
+    "@aws-amplify/backend-cli": "^1.5.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "aws-cdk": "^2.1003.0",
+    "aws-cdk-lib": "^2.180.0",
+    "constructs": "^10.4.2",
+    "esbuild": "^0.25.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vite": "^5.1.4",
+    "vitest": "^3.0.9"
+  },
+  "dependencies": {
+    "@aws-amplify/ui-react": "^6.9.4",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "aws-amplify": "^6.13.6",
+    "lucide-react": "^0.483.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.22.3",
+    "react-scroll": "^1.9.3"
+  },
+  "description": ""
+}

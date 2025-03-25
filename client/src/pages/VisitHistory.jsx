@@ -1,5 +1,6 @@
 "use client"
 
+import React from 'react';
 import { useState, useEffect } from "react"
 import { Download, ArrowRight, Plus, Filter } from "lucide-react"
 import AddRecord from "./AddRecord"
@@ -19,7 +20,7 @@ const VisitHistory = () => {
   useEffect(() => {
     const fetchVisitRecords = async () => {
       try {
-        const response = await fetch("http://localhost:5000/recs/visit-records", {
+        const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/recs/visit-records", {
           method: "GET",
           credentials: "include",
           headers: {

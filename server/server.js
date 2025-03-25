@@ -36,8 +36,9 @@ app.use(session({
 
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:5173" || "http://localhost:5174"], 
-    credentials: true
+    origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : ['http://localhost:3000', 'http://localhost:5000'],
+    credentials: true,
+    optionsSuccessStatus: 200,
 }));
 app.use(express.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
@@ -81,5 +82,5 @@ app.use("/recs", recordRoutes);
 
 // starts the server
 app.listen(port, () => {
-    console.log(`✅ Server running at http://localhost:${port}`);
+    console.log(`✅ Server running at https://master.d3a3fq9o5kdr8.amplifyapp.com`);
 });

@@ -1,5 +1,6 @@
 "use client"
 
+import React from 'react';
 import { useState } from "react"
 import { useUserRole, ROLES } from "../contexts/UserRoleContext"
 import "../css/RoleSwitcher.css"

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import "../css/UnlockDiagnosis.css"
+import React from 'react';
 
 const UnlockModal = ({ isOpen, onClose, onUnlock }) => {
   const [reason, setReason] = useState("")

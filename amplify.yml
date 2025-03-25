@@ -1,0 +1,30 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Installing dependencies..."
+        - nvm install 20
+        - nvm use 20
+        - node -v  # Verify Node.js 20
+        - cd client
+        - npm install --legacy-peer-deps
+        - cd ../server
+        - npm install --legacy-peer-deps
+        - cd ../
+    build:
+      commands:
+        - echo "Building..."
+        - cd client
+        - npm run build
+        - cd ../server
+        - npm run build
+        - cd ../
+  artifacts:
+    baseDirectory: client/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - client/node_modules/**/*
+      - server/node_modules/**/*

@@ -19,7 +19,7 @@ const AccessCode = () => {
     e.preventDefault();
     console.log("Access code entered:", formData.accessCode);
     try {
-      const response = await fetch("http://localhost:5000/auth/signup/employee-verify", {
+      const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/auth/signup/employee-verify", {
         method: "POST",
         credentials: "include",
         headers: {

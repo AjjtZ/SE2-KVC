@@ -25,7 +25,7 @@ const SignupPetOwner = () => {
     e.preventDefault();
     console.log("Signing up pet owner:", formData);
     try {
-      const response = await fetch("http://localhost:5000/auth/signup/petowner-step1", {
+      const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/auth/signup/petowner-step1", {
         method: "POST",
         credentials: "include",
         headers: {

@@ -1,1 +1,9 @@
 node_modules
+<<<<<<< HEAD
+=======
+
+# amplify
+.amplify
+amplify_outputs*
+amplifyconfiguration*
+>>>>>>> 6268802e9885c169000275202f8feea5117cb76e
