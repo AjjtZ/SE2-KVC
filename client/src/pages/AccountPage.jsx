@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Pencil, Save, Eye, EyeOff } from "lucide-react";
 import "../css/AccountPage.css";
+import React from 'react';
 
 const AccountPage = ({ title, displayData, initialUserData, isEditing, setIsEditing, onSave, children }) => {
   const [isChangingPassword, setIsChangingPassword] = useState(false);
