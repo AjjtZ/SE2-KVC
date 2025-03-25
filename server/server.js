@@ -36,7 +36,7 @@ app.use(session({
 
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:5173" || "http://localhost:5174"], 
+    origin: ["https://master.d3a3fq9o5kdr8.amplifyapp.com"], 
     credentials: true
 }));
 app.use(express.urlencoded({ extended: true })); 
@@ -81,5 +81,5 @@ app.use("/recs", recordRoutes);
 
 // starts the server
 app.listen(port, () => {
-    console.log(`✅ Server running at http://localhost:${port}`);
+    console.log(`✅ Server running at https://master.d3a3fq9o5kdr8.amplifyapp.com`);
 });
