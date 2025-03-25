@@ -1,7 +1,8 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
-import './NavBar.css';  // Use correct relative path
+import './Navbar.css';  
 import { Button } from './Button';
 
 function NavBar() {
