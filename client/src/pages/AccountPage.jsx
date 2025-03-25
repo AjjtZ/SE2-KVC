@@ -1,41 +1,46 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Pencil, Save, Eye, EyeOff } from "lucide-react"
-import "../css/AccountPage.css"
+import { useState, useEffect } from "react";
+import { Pencil, Save, Eye, EyeOff } from "lucide-react";
+import "../css/AccountPage.css";
 
-const AccountPage = ({ title, displayData, initialUserData, onSave, children }) => {
-  const [isEditing, setIsEditing] = useState(false)
-  const [isChangingPassword, setIsChangingPassword] = useState(false)
-  const [userData, setUserData] = useState(initialUserData)
+const AccountPage = ({ title, displayData, initialUserData, isEditing, setIsEditing, onSave, children }) => {
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
+  const [userData, setUserData] = useState(initialUserData);
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
     newPassword: "",
     confirmPassword: "",
-  })
+  });
   const [showPasswords, setShowPasswords] = useState({
     current: false,
     new: false,
     confirm: false,
-  })
+  });
+
+  useEffect(() => {
+    console.log("AccountPage - displayData updated:", displayData);
+  }, [displayData]);
+
+  useEffect(() => {
+    console.log("AccountPage - initialUserData updated:", initialUserData);
+    setUserData(initialUserData);
+  }, [initialUserData]);
 
   const handleEdit = () => {
-    setIsEditing(true)
-    setUserData(initialUserData)
-  }
-
-  const handleSave = () => {
-    setIsEditing(false)
-    onSave(userData)
-  }
+    console.log("AccountPage - Entering edit mode");
+    setIsEditing(true);
+    setUserData(initialUserData);
+  };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
+    console.log(`AccountPage - Input changed: ${name} = ${value}`);
     setUserData((prevData) => ({
       ...prevData,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handlePasswordChange = (e) => {
     const { name, value } = e.target
@@ -52,16 +57,41 @@ const AccountPage = ({ title, displayData, initialUserData, onSave, children }) 
     }))
   }
 
-  const handleSavePassword = () => {
-    // Add password validation logic here
-    console.log("Saving password:", passwordData)
-    setIsChangingPassword(false)
-    setPasswordData({
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: "",
-    })
-  }
+  const handleSavePassword = async () => {
+    try {
+      console.log("Password Data:", passwordData);
+
+      const response = await fetch("http://localhost:5000/user/change-password", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(passwordData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Backend Error:", errorData);
+        throw new Error(errorData.error || "Failed to change password");
+      }
+
+      const data = await response.json();
+      console.log("Password changed successfully:", data);
+
+      setIsChangingPassword(false);
+      setPasswordData({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      });
+
+      alert("Password changed successfully!");
+    } catch (error) {
+      console.error("Error changing password:", error);
+      alert(error.message || "Failed to change password. Please try again.");
+    }
+  };
 
   return (
     <div className="account-page">
@@ -72,8 +102,8 @@ const AccountPage = ({ title, displayData, initialUserData, onSave, children }) 
           <div className="profile-section">
             <div className="avatar-container">
               <div className="avatar-placeholder"></div>
-              <h2>{`${displayData.firstName} ${displayData.lastName}`}</h2>
-              <p className="role">{displayData.role}</p>
+              <h2>{`${displayData?.firstname || ""} ${displayData?.lastname || ""}`}</h2>
+              <p className="role">{displayData?.role || ""}</p>
             </div>
 
             <div className="info-section">
@@ -83,7 +113,7 @@ const AccountPage = ({ title, displayData, initialUserData, onSave, children }) 
                     <div className="card-header">
                       <h3>Personal Information</h3>
                       {isEditing ? (
-                        <button className="save-profile-btn" onClick={handleSave}>
+                        <button className="save-profile-btn" onClick={() => onSave(userData)}>
                           <Save size={16} />
                           Save
                         </button>
@@ -196,8 +226,7 @@ const AccountPage = ({ title, displayData, initialUserData, onSave, children }) 
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AccountPage
-
+export default AccountPage;

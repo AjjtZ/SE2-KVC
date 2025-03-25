@@ -9,7 +9,6 @@ exports.updatePetProfile = async (req, res) => {
     console.log("Received update request:", { pet_id, ...updateFields });
 
     try {
-        // Check if the pet exists
         const existingPet = await PetModel.findById(pet_id);
         if (!existingPet) {
             return res.status(404).json({ error: "❌ Pet not found." });
@@ -137,7 +136,6 @@ exports.restorePet = async (req, res) => {
 
 exports.getAllActivePets = async (req, res) => {
     try {
-        // Fetch active pets where pet_status is "active"
         const activePets = await PetModel.getAllActivePets();
         res.status(200).json(activePets);
     } catch (error) {
@@ -147,10 +145,25 @@ exports.getAllActivePets = async (req, res) => {
 
 exports.getAllArchivedPets = async (req, res) => {
     try {
-        // Fetch archived pets where pet_status is "archived"
         const archivedPets = await PetModel.getAllArchivedPets();
         res.status(200).json(archivedPets);
     } catch (error) {
         res.status(500).json({ error: "❌ Error fetching archived pets." });
+    }
+};
+
+exports.getPetById = async (req, res) => {
+    const { pet_id } = req.params;
+
+    try {
+        const pet = await PetModel.findById(pet_id);
+        if (!pet) {
+            return res.status(404).json({ error: "❌ Pet not found!" });
+        }
+
+        res.status(200).json(pet);
+    } catch (error) {
+        console.error("Error fetching pet details:", error);
+        res.status(500).json({ error: "❌ Server error while fetching pet details." });
     }
 };
