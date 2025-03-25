@@ -1,3 +1,4 @@
+import React from 'react';
 export function calculateAge(birthday) {
     const today = new Date()
     const birthDate = new Date(birthday)

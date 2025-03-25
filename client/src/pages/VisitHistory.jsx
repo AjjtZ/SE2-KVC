@@ -1,5 +1,6 @@
 "use client"
 
+import React from 'react';
 import { useState, useEffect } from "react"
 import { Download, ArrowRight, Plus, Filter } from "lucide-react"
 import AddRecord from "./AddRecord"
