@@ -36,8 +36,9 @@ app.use(session({
 
 app.use(express.json());
 app.use(cors({
-    origin: ["https://master.d3a3fq9o5kdr8.amplifyapp.com"], 
-    credentials: true
+    origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : ['http://localhost:3000', 'http://localhost:5000'],
+    credentials: true,
+    optionsSuccessStatus: 200,
 }));
 app.use(express.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
