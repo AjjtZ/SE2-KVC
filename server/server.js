@@ -6,6 +6,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const amplifyOutputs = require("../amplify_outputs.json");
 
 // database and route handler imports
 const db = require("./config/db");
@@ -36,7 +37,7 @@ app.use(session({
 
 app.use(express.json());
 app.use(cors({
-    origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : ['http://localhost:3000', 'http://localhost:5000'],
+    origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : ['http://localhost:3000', 'http://localhost:5000', 'https://master.d3a3fq9o5kdr8.amplifyapp.com'],
     credentials: true,
     optionsSuccessStatus: 200,
 }));
@@ -82,5 +83,6 @@ app.use("/recs", recordRoutes);
 
 // starts the server
 app.listen(port, () => {
+    console.log(`✅ Server running at http://localhost:${port}`);
     console.log(`✅ Server running at https://master.d3a3fq9o5kdr8.amplifyapp.com`);
 });
