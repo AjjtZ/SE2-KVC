@@ -26,7 +26,7 @@ const ViewRecord = ({ record, onBack, onUpdate }) => {
     const fetchRecord = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/recs/records/${pet_id}`, {
+        const response = await fetch(`https://master.d3a3fq9o5kdr8.amplifyapp.com/recs/records/${pet_id}`, {
           method: "GET",
           credentials: true,
           headers: {
