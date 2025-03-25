@@ -8,7 +8,7 @@ const Header = ({ toggleSidebar }) => {
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:5000/auth/logout", {
+      const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/auth/logout", {
         method: "POST",
         credentials: "include",
         headers: {

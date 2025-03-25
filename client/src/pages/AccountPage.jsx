@@ -62,7 +62,7 @@ const AccountPage = ({ title, displayData, initialUserData, isEditing, setIsEdit
     try {
       console.log("Password Data:", passwordData);
 
-      const response = await fetch("http://localhost:5000/user/change-password", {
+      const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/user/change-password", {
         method: "POST",
         credentials: "include",
         headers: {

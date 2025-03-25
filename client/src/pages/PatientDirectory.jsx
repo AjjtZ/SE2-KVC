@@ -19,7 +19,7 @@ export default function PatientDirectory() {
   useEffect(() => {
     const fetchActivePets = async () => {
       try {
-        const response = await fetch("http://localhost:5000/pets/active", {
+        const response = await fetch("https://master.d3a3fq9o5kdr8.amplifyapp.com/pets/active", {
           method: "GET",
           credentials: "include",
           headers: {
@@ -48,7 +48,7 @@ export default function PatientDirectory() {
   const handleArchive = (petId) => {
   showConfirmDialog("Are you sure you want to archive this record?", async () => {
     try {
-      const response = await fetch(`http://localhost:5000/pets/archive/${petId}`, {
+      const response = await fetch(`https://master.d3a3fq9o5kdr8.amplifyapp.com/pets/archive/${petId}`, {
         method: "PUT",
         credentials: "include",
         headers: {

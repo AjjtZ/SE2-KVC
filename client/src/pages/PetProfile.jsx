@@ -35,7 +35,7 @@ export default function PetProfile() {
 
   const fetchVaccinationRecords = useCallback(async (petId) => {
     try {
-      const response = await fetch(`http://localhost:5000/vax/pets/${petId}/viewVaccines`, {
+      const response = await fetch(`https://master.d3a3fq9o5kdr8.amplifyapp.com/vax/pets/${petId}/viewVaccines`, {
         method: "GET",
         credentials: "include",
         headers: {
@@ -58,7 +58,7 @@ export default function PetProfile() {
   const fetchPetData = async () => {
     try {
       console.log("Fetching pet data for pet_id:", pet_id);
-      const response = await fetch(`http://localhost:5000/pets/${pet_id}`, {
+      const response = await fetch(`https://master.d3a3fq9o5kdr8.amplifyapp.com/pets/${pet_id}`, {
         method: "GET",
         credentials: "include",
         headers: {
@@ -124,7 +124,7 @@ export default function PetProfile() {
     const formattedDate = date ? formatDateToMMDDYYYY(date) : "";
 
     try {
-      const response = await fetch(`http://localhost:5000/pets/${pet_id}/vaccines`, {
+      const response = await fetch(`https://master.d3a3fq9o5kdr8.amplifyapp.com/pets/${pet_id}/vaccines`, {
         method: "POST",
         credentials: "include",
         headers: {
